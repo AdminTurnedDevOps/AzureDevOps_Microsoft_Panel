@@ -15,7 +15,6 @@
       }
     },
     "variables": {
-      "webAppPortalName": "[concat(parameters('appname'), '-webapp')]",
       "appServicePlanName": "[concat('AppServicePlan-', parameters('appname'))]"
     },
     "resources": [
@@ -35,7 +34,7 @@
         "apiVersion": "2018-11-01",
         "type": "Microsoft.Web/sites",
         "kind": "app",
-        "name": "[variables('webAppPortalName')]",
+        "name": "[parameters('appname')]",
         "location": "[parameters('location')]",
         "properties": {
           "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
